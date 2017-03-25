@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp" >
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/iv_subject"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/ic_home_white_24dp" />
+
+    <TextView
+        android:id="@+id/tv_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_subject"
+        android:text="公共基础课：高等数学"/>
+
+    <TextView
+        android:id="@+id/tv_question_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_subject"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="如何证明：可导一定连续，连续不一定可导？"/>
+
+    <TextView
+        android:id="@+id/tv_question_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_question_title"
+        android:text="(1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再由定理：当x→x0..."/>
+
+    <TextView
+        android:id="@+id/tv_question_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/tv_question_contents"
+        android:layout_toLeftOf="@+id/tv_question_like"
+        android:text="回答：66" />
+
+    <TextView
+        android:id="@+id/tv_question_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_question_contents"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="赞：999" />
+
+
+</RelativeLayout>

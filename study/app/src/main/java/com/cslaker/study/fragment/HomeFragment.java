@@ -12,7 +12,11 @@ import android.view.ViewGroup;
 
 import com.cslaker.study.R;
 import com.cslaker.study.adapter.QuestionAdapter;
+import com.cslaker.study.bean.Question;
 import com.cslaker.study.tools.RecyclerViewDivider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by CSLaker on 2017/3/24.
@@ -24,20 +28,20 @@ public class HomeFragment extends Fragment {
     private static RecyclerViewDivider dividerLine;
     private RecyclerView mRecyclerView;
     private QuestionAdapter mAdapter;
-    private String[] mdatas = null;
+    private List<Question> mQuesDatas;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (mdatas == null) {
+        if (mQuesDatas == null) {
             initDatas();
         }
         if (mAdapter == null) {
-            mAdapter = new QuestionAdapter(mdatas);
+            mAdapter = new QuestionAdapter(mQuesDatas);
         }
         if (dividerLine == null) {
             dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
-            dividerLine.setSize(3);
+            dividerLine.setSize(10);
             dividerLine.setColor(Color.LTGRAY);
         }
     }
@@ -54,8 +58,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    public HomeFragment(){
-    }
+    public HomeFragment(){}
 
     public static HomeFragment newInstance(String text) {
         Bundle args = new Bundle();
@@ -68,9 +71,17 @@ public class HomeFragment extends Fragment {
     }
 
     private void initDatas() {
-        mdatas = new String[20];
+        Question question = new Question();
+        question.setSubject("公共基础课：高等数学");
+        question.setTitle("如何证明：可导一定连续,连续不一定可导？");
+        question.setContens("(1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A由可导的充分必要条件有f(x)=f(x0)"
+                + "+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再由定理：当x...");
+        question.setAnswerNumbers(66);
+        question.setLikeNumbers(999);
+
+        mQuesDatas = new ArrayList<>();
         for (int i = 0; i < 20; i ++) {
-            mdatas[i] = "Hello world!";
+            mQuesDatas.add(question);
         }
     }
 

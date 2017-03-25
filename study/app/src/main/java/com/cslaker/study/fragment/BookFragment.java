@@ -23,8 +23,7 @@ public class BookFragment extends Fragment {
         return view;
     }
 
-    public BookFragment(){
-    }
+    public BookFragment(){}
 
     public static BookFragment newInstance(String text) {
         Bundle args = new Bundle();

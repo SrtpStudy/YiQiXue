@@ -22,8 +22,7 @@ public class UserFragment extends Fragment {
         return view;
     }
 
-    public UserFragment(){
-    }
+    public UserFragment(){}
 
     public static UserFragment newInstance(String text) {
         Bundle args = new Bundle();
