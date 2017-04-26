@@ -1,5 +1,6 @@
 package com.cslaker.study.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,8 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.cslaker.study.R;
+import com.cslaker.study.activity.NewQuestionActivity;
 import com.cslaker.study.adapter.QuestionAdapter;
 import com.cslaker.study.bean.Question;
 import com.cslaker.study.tools.RecyclerViewDivider;
@@ -22,13 +25,14 @@ import java.util.List;
  * Created by CSLaker on 2017/3/24.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private static HomeFragment fragment;
     private static RecyclerViewDivider dividerLine;
     private RecyclerView mRecyclerView;
     private QuestionAdapter mAdapter;
     private List<Question> mQuesDatas;
+    private ImageButton mNewQuestion;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,9 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        mNewQuestion = (ImageButton) view.findViewById(R.id.ib_new_question);
+        mNewQuestion.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycle_view);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -85,4 +92,13 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ib_new_question: {
+                Intent intent = new Intent(getActivity(), NewQuestionActivity.class);
+                startActivity(intent);
+            }
+        }
+    }
 }
