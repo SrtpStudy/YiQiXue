@@ -1,16 +1,19 @@
 package com.cslaker.study.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.cslaker.study.R;
+import com.cslaker.study.activity.QuestionInfoActivity;
 import com.cslaker.study.bean.Question;
-
-import org.w3c.dom.Text;
+import com.cslaker.study.tools.MyApplication;
 
 import java.util.List;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by CSLaker on 2017/3/25.
@@ -26,7 +29,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_question, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_question_list, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -44,7 +47,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         return mDatas.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView mSubjectsTV;
         public TextView mTitleTV;
@@ -54,6 +57,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
         public ViewHolder(View view){
             super(view);
+            view.setOnClickListener(this);
             mSubjectsTV = (TextView) view.findViewById(R.id.tv_subject);
             mTitleTV = (TextView) view.findViewById(R.id.tv_question_title);
             mContentsTV = (TextView) view.findViewById(R.id.tv_question_contents);
@@ -61,6 +65,12 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             mLikeTV = (TextView) view.findViewById(R.id.tv_question_like);
         }
 
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MyApplication.getContext(), QuestionInfoActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            MyApplication.getContext().startActivity(intent);
+        }
     }
 
 }

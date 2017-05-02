@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,18 +29,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private static HomeFragment fragment;
     private static RecyclerViewDivider dividerLine;
     private RecyclerView mRecyclerView;
-    private QuestionAdapter mAdapter;
-    private List<Question> mQuesDatas;
+    private QuestionAdapter mQuestionAdapter;
+    private List<Question> mQuestionList;
     private ImageButton mNewQuestion;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (mQuesDatas == null) {
+        if (mQuestionList == null) {
             initDatas();
         }
-        if (mAdapter == null) {
-            mAdapter = new QuestionAdapter(mQuesDatas);
+        if (mQuestionAdapter == null) {
+            mQuestionAdapter = new QuestionAdapter(mQuestionList);
         }
         if (dividerLine == null) {
             dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
@@ -61,7 +60,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(dividerLine);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mQuestionAdapter);
         return view;
     }
 
@@ -86,9 +85,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         question.setAnswerNumbers(66);
         question.setLikeNumbers(999);
 
-        mQuesDatas = new ArrayList<>();
+        mQuestionList = new ArrayList<>();
         for (int i = 0; i < 20; i ++) {
-            mQuesDatas.add(question);
+            mQuestionList.add(question);
         }
     }
 
