@@ -12,8 +12,11 @@ import android.widget.TextView;
 
 import com.cslaker.study.R;
 import com.cslaker.study.adapter.AnswerAdapter;
+import com.cslaker.study.adapter.ReplayAdapter;
 import com.cslaker.study.bean.Answer;
+import com.cslaker.study.bean.Replay;
 import com.cslaker.study.tools.RecyclerViewDivider;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +24,17 @@ import java.util.List;
  * Created by CSLaker on 2017/5/2.
  */
 
-public class QuestionInfoActivity  extends AppCompatActivity implements View.OnClickListener {
+public class ReplayActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static RecyclerViewDivider dividerLine;
     private RecyclerView mRecyclerView;
-    private AnswerAdapter mAnswerAdapter;
-    private List<Answer> mAnswerList;
+    private ReplayAdapter mReplayAdapter;
+    private List<Replay> mReplayList;
     private TextView mAnswerTV;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question_info);
+        setContentView(R.layout.activity_replay);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,11 +45,11 @@ public class QuestionInfoActivity  extends AppCompatActivity implements View.OnC
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if (mAnswerList == null) {
+        if (mReplayList == null) {
             initDatas();
         }
-        if (mAnswerAdapter == null) {
-            mAnswerAdapter = new AnswerAdapter(mAnswerList);
+        if (mReplayAdapter == null) {
+            mReplayAdapter = new ReplayAdapter(mReplayList);
         }
         if (dividerLine == null) {
             dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
@@ -58,35 +61,26 @@ public class QuestionInfoActivity  extends AppCompatActivity implements View.OnC
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(dividerLine);
-        mRecyclerView.setAdapter(mAnswerAdapter);
-
-        mAnswerTV = (TextView) findViewById(R.id.tv_new_answer);
-        mAnswerTV.setOnClickListener(this);
+        mRecyclerView.setAdapter(mReplayAdapter);
     }
 
     private void initDatas() {
-        Answer answer = new Answer();
-        answer.setUser("华仔");
-        answer.setContens("可导一定连续,连续不一定可导  证明：（1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A  由可导的充分必要条件有  f(x)=f(x0)+A(x-x0)+o（│...");
-        answer.setTime("2017-01-01");
-        answer.setReplayNumbers(66);
-        answer.setLikeNumbers(999);
+        Replay replay = new Replay();
+        replay.setUser("华仔");
+        replay.setContens("这答案厉害了！谁写的这么棒！");
+        replay.setTime("2017-01-01");
+        replay.setLikeNumbers(666);
 
-        mAnswerList = new ArrayList<>();
+        mReplayList = new ArrayList<>();
         for (int i = 0; i < 20; i ++) {
-            mAnswerList.add(answer);
+            mReplayList.add(replay);
         }
     }
-
 
     @Override
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
-            case R.id.tv_new_answer:
-                intent = new Intent(QuestionInfoActivity.this, NewAnswerActivity.class);
-                startActivity(intent);
-                break;
         }
     }
 }

@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".activity.NewQuestionActivity"></activity>
         <activity android:name=".activity.QuestionInfoActivity"></activity>
+        <activity android:name=".activity.NewAnswerActivity"></activity>
+        <activity android:name=".activity.ReplayActivity"></activity>
     </application>
 
 </manifest>

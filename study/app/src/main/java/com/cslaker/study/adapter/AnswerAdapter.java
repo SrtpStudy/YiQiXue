@@ -1,5 +1,6 @@
 package com.cslaker.study.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cslaker.study.R;
+import com.cslaker.study.activity.ReplayActivity;
 import com.cslaker.study.bean.Answer;
+import com.cslaker.study.tools.MyApplication;
 
 import java.util.List;
 
@@ -43,7 +46,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         return mDatas.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView mUserTV;
         public TextView mContentsTV;
@@ -59,8 +62,23 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
             mReplayTV = (TextView) view.findViewById(R.id.tv_answer_replay);
             mLikeTV = (TextView) view.findViewById(R.id.tv_answer_like);
 
+            mUserTV.setOnClickListener(this);
+            mContentsTV.setOnClickListener(this);
+            mReplayTV.setOnClickListener(this);
+            mLikeTV.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View v) {
+            Intent intent;
+            switch (v.getId()) {
+                case R.id.tv_answer_replay:
+                    intent = new Intent(MyApplication.getContext(), ReplayActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    MyApplication.getContext().startActivity(intent);
+                    break;
+            }
+        }
     }
 
 }
