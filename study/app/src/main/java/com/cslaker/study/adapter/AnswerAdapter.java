@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cslaker.study.R;
+import com.cslaker.study.activity.AnswerInfoActivity;
 import com.cslaker.study.activity.ReplayActivity;
 import com.cslaker.study.bean.Answer;
 import com.cslaker.study.tools.MyApplication;
@@ -74,6 +75,11 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
             switch (v.getId()) {
                 case R.id.tv_answer_replay:
                     intent = new Intent(MyApplication.getContext(), ReplayActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    MyApplication.getContext().startActivity(intent);
+                    break;
+                case R.id.tv_answer_contents:
+                    intent = new Intent(MyApplication.getContext(), AnswerInfoActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     MyApplication.getContext().startActivity(intent);
                     break;

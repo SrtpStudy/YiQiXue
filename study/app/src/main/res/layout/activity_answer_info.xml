@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="回答"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/tv_question_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="如何证明：可导一定连续，连续不一定可导？"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_question_title"
+            android:layout_toLeftOf="@+id/tv_user"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_user_white_24dp"/>
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_question_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="陈火"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_answer_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl"
+        android:padding="10dp"
+        android:text="可导一定连续,连续不一定可导
+
+证明：
+
+（1）可导一定连续
+设y=f(x)在x0处可导,f'(x0)=A
+由可导的充分必要条件有
+f(x)=f(x0)+A(x-x0)+o（│x-x0│）
+当x→x0时,f(x)=f(x0)+o（│x-x0│）
+
+（2）再由定理：当x→x0时,f(x)→A的充分必要条件是f(x)=A+a(a是x→x0时的无穷小）得,limf(x)=f(x0)"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/tv_answer_like"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:drawableTop="@drawable/ic_like_red_32dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="4dp"
+            android:text=" 999"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/tv_answer_replay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:drawableTop="@drawable/ic_replay_32dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="4dp"
+            android:text="  66"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:drawableTop="@drawable/ic_star_yellow_32dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="4dp"
+            android:text="收藏"
+            android:id="@+id/textView"
+            android:layout_alignBaseline="@+id/tv_answer_replay"
+            android:layout_alignBottom="@+id/tv_answer_replay"
+            android:layout_toLeftOf="@+id/tv_answer_replay"
+            android:layout_toStartOf="@+id/tv_answer_replay"/>
+
+    </RelativeLayout>
+</RelativeLayout>

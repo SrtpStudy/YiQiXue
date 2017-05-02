@@ -20,6 +20,7 @@
         <activity android:name=".activity.QuestionInfoActivity"></activity>
         <activity android:name=".activity.NewAnswerActivity"></activity>
         <activity android:name=".activity.ReplayActivity"></activity>
+        <activity android:name=".activity.AnswerInfoActivity"></activity>
     </application>
 
 </manifest>

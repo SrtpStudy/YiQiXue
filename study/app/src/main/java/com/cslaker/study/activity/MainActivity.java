@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, "学习广场").setActiveColorResource(R.color.orange))
                 .addItem(new BottomNavigationItem(R.drawable.ic_game_white_24dp, "线下互动").setActiveColorResource(R.color.orange))
-                .addItem(new BottomNavigationItem(R.drawable.ic_user_white_24dp, "个人中心").setActiveColorResource(R.color.orange))
+                .addItem(new BottomNavigationItem(R.drawable.ic_user_24dp, "个人中心").setActiveColorResource(R.color.orange))
                 .setFirstSelectedPosition(0)
                 .initialise();
 
