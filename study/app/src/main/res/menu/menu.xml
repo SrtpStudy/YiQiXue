@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/ab_search"
-        android:orderInCategory="80"
-        android:title="action_search"
+        android:orderInCategory="100"
+        android:title="搜索"
         app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/ab_save"
+        android:orderInCategory="100"
+        android:title="保存"
+        android:icon="@drawable/ic_save_white_24dp"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/ab_edit"
+        android:orderInCategory="100"
+        android:title="评论"
+        android:icon="@drawable/ic_edit_white_24dp"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/ab_share"
+        android:orderInCategory="100"
+        android:title="分享"
+        android:icon="@drawable/ic_share_white_24dp"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/ab_more"
+        android:orderInCategory="100"
+        android:title="更多"
+        android:icon="@drawable/ic_more_white_24dp"
         app:showAsAction="ifRoom"/>
 
 </menu>
