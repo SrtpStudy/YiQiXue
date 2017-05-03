@@ -101,7 +101,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         menu .findItem(R.id.ab_save).setVisible(false);
         menu .findItem(R.id.ab_edit).setVisible(false);
         menu .findItem(R.id.ab_share).setVisible(false);
-        menu .findItem(R.id.ab_more).setVisible(false);
+        menu .findItem(R.id.ab_more
+        ).setVisible(false);
         return true;
     }
 
