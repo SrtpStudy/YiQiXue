@@ -13,6 +13,6 @@ class Index extends BaseController {
                                       ->field('a_contents,q_title,q_type,a_good,a_comments')
                                       ->limit(10)->select();
 
-        return json_encode($answers);
+        return json($answers);
     }
 }
