@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 2017-03-08 09:03:23
+-- Generation Time: 2017-05-03 21:14:46
 -- 服务器版本： 5.6.28
 -- PHP Version: 5.6.25
 
@@ -36,10 +36,19 @@ CREATE TABLE `answer` (
   `aid` int(10) UNSIGNED NOT NULL,
   `a_contents` varchar(500) NOT NULL,
   `a_good` int(11) NOT NULL,
+  `a_comments` int(8) DEFAULT NULL COMMENT '评论个数',
   `a_time` varchar(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `qid` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `answer`
+--
+
+INSERT INTO `answer` (`aid`, `a_contents`, `a_good`, `a_comments`, `a_time`, `uid`, `qid`) VALUES
+(1, '因为1+1=2，所以。。。。。', 100, 89, '1991111111', 1, 1),
+(2, '哈哈哈哈哈哈，我不会', 109, 77, '19991111111', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -114,6 +123,13 @@ CREATE TABLE `question` (
   `q_numbers` int(11) DEFAULT NULL COMMENT '回答个数',
   `uid` int(11) NOT NULL COMMENT '所属用户ID'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='问题表';
+
+--
+-- 转存表中的数据 `question`
+--
+
+INSERT INTO `question` (`qid`, `q_title`, `q_contents`, `q_type`, `q_time`, `q_numbers`, `uid`) VALUES
+(1, '如何证明：可导一定连续，连续不一定可导', '大神如何证明：可导一定连续，连续不一定可导', '高等数学', '11111111111', 22, 1);
 
 -- --------------------------------------------------------
 
@@ -212,7 +228,7 @@ ALTER TABLE `user`
 -- 使用表AUTO_INCREMENT `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `aid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `aid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- 使用表AUTO_INCREMENT `a_comments`
 --
@@ -237,7 +253,7 @@ ALTER TABLE `c_comment`
 -- 使用表AUTO_INCREMENT `question`
 --
 ALTER TABLE `question`
-  MODIFY `qid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '问题ID';
+  MODIFY `qid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '问题ID', AUTO_INCREMENT=3;
 --
 -- 使用表AUTO_INCREMENT `user`
 --
