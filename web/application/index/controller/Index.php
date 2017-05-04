@@ -10,7 +10,7 @@ class Index extends BaseController {
         $answers = Db::table('answer')->alias('a')
                                       ->join('question q','a.qid = q.qid')
                                       ->order('a_time desc')
-                                      ->field('q_contents,q_title,q_type,a_good,a_comments')
+                                      ->field('a_contents,q_title,q_type,a_good,a_comments')
                                       ->limit(10)->select();
 
         return json_encode($answers);
