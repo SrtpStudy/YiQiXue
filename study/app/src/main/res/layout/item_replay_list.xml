@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/bg_relativelayout" >
+
+    <ImageView
+        android:id="@+id/iv_replay_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_user_48dp"/>
+
+    <TextView
+        android:id="@+id/tv_replay_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="华仔"
+        android:layout_toRightOf="@+id/iv_replay_user" />
+
+    <TextView
+        android:id="@+id/tv_replay_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/iv_replay_user"
+        android:layout_below="@+id/tv_replay_contents"
+        android:drawableLeft="@drawable/ic_like_black_16dp"
+        android:drawablePadding="8dp"
+        android:text="999" />
+
+    <TextView
+        android:id="@+id/tv_replay_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="2017-01-01"
+        android:layout_below="@+id/tv_replay_contents"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/tv_replay_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="这答案厉害了！谁写的这么棒！"
+        android:layout_below="@+id/tv_replay_user"
+        android:layout_alignLeft="@+id/tv_replay_user"
+        android:layout_alignStart="@+id/tv_replay_user"/>
+
+
+</RelativeLayout>

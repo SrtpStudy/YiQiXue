@@ -7,32 +7,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.ashokvarma.bottomnavigation.BottomNavigationBar;
-import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.cslaker.study.R;
 
 /**
- * Created by CSLaker on 2017/4/26.
+ * Created by CSLaker on 2017/5/2.
  */
 
-public class NewQuestionActivity extends AppCompatActivity {
+public class AnswerInfoActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_question);
+        setContentView(R.layout.activity_answer_info);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("提问");
+        toolbar.setTitle("答案");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        menu .findItem(R.id.ab_save).setVisible(true);
+        menu .findItem(R.id.ab_save).setVisible(false);
         menu .findItem(R.id.ab_search).setVisible(false);
         menu .findItem(R.id.ab_edit).setVisible(false);
-        menu .findItem(R.id.ab_share).setVisible(false);
-        menu .findItem(R.id.ab_more).setVisible(false);
+        menu .findItem(R.id.ab_share).setVisible(true);
+        menu .findItem(R.id.ab_more).setVisible(true);
         return true;
     }
 

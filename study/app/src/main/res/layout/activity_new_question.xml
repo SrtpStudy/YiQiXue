@@ -20,7 +20,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:drawablePadding="8dp"
-        android:drawableLeft="@drawable/ic_book_white_24dp"
+        android:drawableLeft="@drawable/ic_game_white_24dp"
         android:textSize="16sp"
         android:text="问题"/>
 
@@ -56,11 +56,11 @@
         android:hint="请输入内容" />
 
     <ImageButton
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_gravity="right"
         android:layout_marginRight="10dp"
-        android:src="@drawable/ic_picture_black"
+        android:background="@drawable/ic_picture_24dp"
         android:id="@+id/imageButton" />
 
 </LinearLayout>

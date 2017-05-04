@@ -13,23 +13,23 @@ import com.cslaker.study.R;
  * Created by CSLaker on 2017/3/24.
  */
 
-public class BookFragment extends Fragment {
+public class GameFragment extends Fragment {
 
-    private static BookFragment fragment;
+    private static GameFragment fragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_book, container, false);
+        View view = inflater.inflate(R.layout.fragment_game, container, false);
         return view;
     }
 
-    public BookFragment(){}
+    public GameFragment(){}
 
-    public static BookFragment newInstance(String text) {
+    public static GameFragment newInstance(String text) {
         Bundle args = new Bundle();
         args.putString("text", text);
         if (fragment == null) {
-            fragment = new BookFragment();
+            fragment = new GameFragment();
         }
         fragment.setArguments(args);
         return fragment;
