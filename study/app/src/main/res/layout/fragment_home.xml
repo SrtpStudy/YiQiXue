@@ -16,7 +16,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="10dp"
-        android:background="@drawable/ic_new_question_48dp"
+        android:background="@drawable/ic_new_question"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true" />
 

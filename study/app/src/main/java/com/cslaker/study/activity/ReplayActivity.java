@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -38,7 +36,12 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_replay);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("评论");
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -72,26 +75,6 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
         for (int i = 0; i < 20; i ++) {
             mReplayList.add(replay);
         }
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        menu .findItem(R.id.ab_save).setVisible(false);
-        menu .findItem(R.id.ab_search).setVisible(false);
-        menu .findItem(R.id.ab_edit).setVisible(true);
-        menu .findItem(R.id.ab_share).setVisible(false);
-        menu .findItem(R.id.ab_more).setVisible(false);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
