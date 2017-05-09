@@ -1,4 +1,4 @@
-package com.example.srtp;
+package com.cslaker.study.bean;
 
 /**
  * Created by sdfgsdfgasdfa on 2017/5/1.

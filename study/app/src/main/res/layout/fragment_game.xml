@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_vertical"
-        android:text="这是线下互动！"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1A1AE6">
+
+        <Button
+            android:id="@+id/title_back"
+            android:layout_width="41dp"
+            android:layout_height="26dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/arrow_left"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="约学"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="686dp"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

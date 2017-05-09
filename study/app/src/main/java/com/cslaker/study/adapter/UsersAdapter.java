@@ -1,16 +1,14 @@
-package com.example.srtp;
-import com.example.srtp.R;
-import com.example.srtp.Users;
+package com.cslaker.study.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.cslaker.study.bean.Users;
+import com.cslaker.study.R;
 import java.util.List;
 
 public class UsersAdapter extends ArrayAdapter<Users> {
