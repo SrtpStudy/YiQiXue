@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         question1.setSubject("公共基础：高等数学");
         question1.setTitle("如何证明：可导一定连续,连续不一定可导？");
         question1.setContens("(1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A由可导的充分必要条件有f(x)=f(x0)"
-                + "+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再由定理：当x...");
+                + "+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再...");
         question1.setAnswerNumbers(66);
         question1.setLikeNumbers(999);
         mQuestionList.add(question1);

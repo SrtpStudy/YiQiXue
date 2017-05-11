@@ -11,6 +11,7 @@
     <color name="iconsColor">#FFFFFF</color>
     <color name="dividerColor">#BDBDBD</color>
     <color name="navigationBarColor">#2196F3</color>
+    <color name="colorHint">#BDBDBD</color>
 
     <color name="teal">#C0D9D9 </color>
     <color name="brown">#A67D3D</color>

@@ -10,5 +10,7 @@
     <string name="collect">收藏</string>
     <string name="replay">回答</string>
     <string name="subjects_name">公共基础课：高等数学</string>
-    <string name="question_contents2">(1）可导一定连续 设y=f(x)在x0处可导,f\'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再由定理：当x→x0...</string>
+    <string name="question_contents2">(1）可导一定连续 设y=f(x)在x0处可导,f\'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再...</string>
+    <string name="prompt_title">标题</string>
+    <string name="prompt_contents">内容</string>
 </resources>
