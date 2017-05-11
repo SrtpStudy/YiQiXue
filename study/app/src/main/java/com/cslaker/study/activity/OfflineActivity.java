@@ -21,7 +21,7 @@ public class OfflineActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_game);
         initDigit();
         UsersAdapter adapter = new UsersAdapter(OfflineActivity.this, R.layout.users_item,usersList);
-        ListView listView = (ListView) findViewById(R.id.list_view);
+        ListView listView = (ListView) findViewById(R.id.lv_game);
         listView.setAdapter(adapter);
 
 

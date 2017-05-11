@@ -27,7 +27,6 @@ import java.util.List;
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private static HomeFragment fragment;
-    private static RecyclerViewDivider dividerLine;
     private RecyclerView mRecyclerView;
     private QuestionAdapter mQuestionAdapter;
     private List<Question> mQuestionList;
@@ -42,24 +41,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         if (mQuestionAdapter == null) {
             mQuestionAdapter = new QuestionAdapter(mQuestionList);
         }
-        if (dividerLine == null) {
-            dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
-            dividerLine.setSize(10);
-            dividerLine.setColor(Color.LTGRAY);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        mNewQuestion = (ImageButton) view.findViewById(R.id.ib_new_question);
+        mNewQuestion = (ImageButton) view.findViewById(R.id.fab_new_question);
         mNewQuestion.setOnClickListener(this);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycle_view);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(dividerLine);
         mRecyclerView.setAdapter(mQuestionAdapter);
         return view;
     }
@@ -87,7 +80,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         question1.setLikeNumbers(999);
         mQuestionList.add(question1);
 
-        Question question2 = new Question();
+   /*     Question question2 = new Question();
         question2.setSubject("专业选修：计算机网络");
         question2.setTitle(" TCP/IP的核心思想(理念)是什么？");
         question2.setContens("TCP/IP的核心思想就是“网络互联”，将使用不同低层协议的异构网络，" +
@@ -103,17 +96,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 "面向对象是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。");
         question3.setAnswerNumbers(9);
         question3.setLikeNumbers(40);
-        mQuestionList.add(question3);
+        mQuestionList.add(question3);*/
 
-/*        for (int i = 0; i < 20; i ++) {
-            mQuestionList.add(question);
-        }*/
+        for (int i = 0; i < 20; i ++) {
+            mQuestionList.add(question1);
+        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ib_new_question: {
+            case R.id.fab_new_question: {
                 Intent intent = new Intent(getActivity(), NewQuestionActivity.class);
                 startActivity(intent);
             }

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -14,7 +15,6 @@ import com.cslaker.study.R;
 import com.cslaker.study.fragment.GameFragment;
 import com.cslaker.study.fragment.HomeFragment;
 import com.cslaker.study.fragment.UserFragment;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
@@ -43,7 +43,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         bottomNavigationBar.setTabSelectedListener(this);
     }
 
-    /** * 设置默认的 */
+    /**
+     * 设置默认的
+     */
     private void setDefaultFragment() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
@@ -97,7 +99,22 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+        menu .findItem(R.id.ab_save).setVisible(false);
+        menu .findItem(R.id.ab_search).setVisible(true);
+        menu .findItem(R.id.ab_edit).setVisible(false);
+        menu .findItem(R.id.ab_share).setVisible(false);
+        menu .findItem(R.id.ab_more).setVisible(false);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.ab_search) {
+            return true;
+        } else
+        return super.onOptionsItemSelected(item);
     }
 
 }

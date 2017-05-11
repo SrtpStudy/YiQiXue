@@ -49,7 +49,7 @@
         android:layout_below="@+id/rl"
         android:shadowColor="@color/textColorPrimary"
         android:padding="10dp"
-        android:text="@string/question_contents"/>
+        android:text="@string/question_contents1"/>
 
 
     <android.support.v7.widget.Toolbar
