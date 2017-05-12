@@ -11,15 +11,16 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_user_16dp"
         android:drawablePadding="8dp"
-        android:text="华仔" />
+        android:textStyle="bold"
+        android:text="@string/user2_name" />
 
     <TextView
         android:id="@+id/tv_answer_contents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_below="@+id/tv_answer_user"
-        android:text="(1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再由定理..."/>
+        android:text="@string/question_contents2"/>
 
     <TextView
         android:id="@+id/tv_answer_like"
@@ -28,7 +29,7 @@
         android:drawableLeft="@drawable/ic_like_red_16dp"
         android:drawablePadding="8dp"
         android:layout_marginTop="10dp"
-        android:text="999"
+        android:text="@string/like_number"
         android:layout_below="@+id/tv_answer_contents" />
 
     <TextView
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_replay_16dp"
         android:drawablePadding="8dp"
-        android:text="66"
+        android:text="@string/replay_number"
         android:layout_marginLeft="10dp"
         android:layout_below="@+id/tv_answer_contents"
         android:layout_toRightOf="@id/tv_answer_like"
@@ -47,7 +48,7 @@
         android:id="@+id/tv_answer_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2017-01-01"
+        android:text="@string/time"
         android:layout_alignBaseline="@+id/tv_answer_replay"
         android:layout_alignBottom="@+id/tv_answer_replay"
         android:layout_alignParentRight="true"

@@ -3,6 +3,7 @@ package com.cslaker.study.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -23,6 +24,17 @@ public class NewQuestionActivity extends AppCompatActivity {
         toolbar.setTitle("提问");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        menu .findItem(R.id.ab_save).setVisible(true);
+        menu .findItem(R.id.ab_search).setVisible(false);
+        menu .findItem(R.id.ab_edit).setVisible(false);
+        menu .findItem(R.id.ab_share).setVisible(false);
+        menu .findItem(R.id.ab_more).setVisible(false);
+        return true;
     }
 
     @Override
