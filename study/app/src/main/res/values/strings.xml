@@ -17,4 +17,13 @@
     <string name="default_sort">默认排序</string>
     <string name="answer_number">123个回答</string>
     <string name="time">2017-01-01</string>
+    <string name="comments">这答案厉害了！谁写的这么棒！</string>
+
+    <string-array name="sorts">
+        <item>默认排序</item>
+        <item>评论时间</item>
+        <item>点赞数</item>
+        <item>回复数</item>
+    </string-array>
+
 </resources>
