@@ -62,7 +62,7 @@
             android:id="@+id/ib_new_ques"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/dp_8"
             android:layout_gravity="right"
             android:background="@drawable/ic_picture_24dp" />
 

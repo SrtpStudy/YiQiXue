@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="@drawable/bg_relativelayout" >
+    android:background="@color/white"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tv_answer_user"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/tv_answer_user"
-        android:text="(1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再由定理：当x→x0..."/>
+        android:text="(1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再由定理..."/>
 
     <TextView
         android:id="@+id/tv_answer_like"

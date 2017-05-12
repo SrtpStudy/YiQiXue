@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         question3.setLikeNumbers(40);
         mQuestionList.add(question3);*/
 
-        for (int i = 0; i < 20; i ++) {
+        for (int i = 0; i < 10; i ++) {
             mQuestionList.add(question1);
         }
     }

@@ -71,7 +71,7 @@ public class QuestionInfoActivity  extends AppCompatActivity implements View.OnC
         answer1.setLikeNumbers(999);
         mAnswerList.add(answer1);
 
-        Answer answer2 = new Answer();
+/*        Answer answer2 = new Answer();
         answer2.setUser("隔壁老王");
         answer2.setContens("因为函数可导,根据可导的定义有\n" +
                 "limΔy/Δx=A (Δx趋向于0)\n" +
@@ -100,10 +100,10 @@ public class QuestionInfoActivity  extends AppCompatActivity implements View.OnC
         answer3.setTime("2017-05-02");
         answer3.setReplayNumbers(30);
         answer3.setLikeNumbers(454);
-        mAnswerList.add(answer3);
-/*        for (int i = 0; i < 20; i ++) {
-            mAnswerList.add(answer);
-        }*/
+        mAnswerList.add(answer3);*/
+        for (int i = 0; i < 10; i ++) {
+            mAnswerList.add(answer1);
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

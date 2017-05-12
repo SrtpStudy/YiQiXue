@@ -7,7 +7,7 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:layout_marginBottom="8dp"
     app:contentPadding="16dp"
-    app:cardCornerRadius="4dp">
+    app:cardCornerRadius="2dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"

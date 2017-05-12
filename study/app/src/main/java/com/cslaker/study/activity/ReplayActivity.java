@@ -37,7 +37,7 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_replay);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("回答");
+        toolbar.setTitle("评论");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -49,7 +49,7 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
         }
         if (dividerLine == null) {
             dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
-            dividerLine.setSize(10);
+            dividerLine.setSize(5);
             dividerLine.setColor(Color.LTGRAY);
         }
 
@@ -68,7 +68,7 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
         replay.setLikeNumbers(666);
 
         mReplayList = new ArrayList<>();
-        for (int i = 0; i < 20; i ++) {
+        for (int i = 0; i < 10; i ++) {
             mReplayList.add(replay);
         }
     }
