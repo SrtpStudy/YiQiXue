@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.cslaker.study.R;
 import com.cslaker.study.adapter.AnswerAdapter;
 import com.cslaker.study.bean.Answer;
-import com.cslaker.study.tools.RecyclerViewDivider;
+import com.cslaker.study.utils.RecyclerViewDivider;
 import java.util.ArrayList;
 import java.util.List;
 

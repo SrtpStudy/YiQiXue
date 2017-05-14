@@ -11,7 +11,7 @@ import com.cslaker.study.R;
 import com.cslaker.study.activity.AnswerInfoActivity;
 import com.cslaker.study.activity.ReplayActivity;
 import com.cslaker.study.bean.Answer;
-import com.cslaker.study.tools.MyApplication;
+import com.cslaker.study.utils.MyApplication;
 
 import java.util.List;
 

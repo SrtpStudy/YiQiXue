@@ -1,17 +1,13 @@
 package com.cslaker.study.adapter;
 
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.cslaker.study.R;
-import com.cslaker.study.bean.Answer;
 import com.cslaker.study.bean.Replay;
-import com.cslaker.study.tools.MyApplication;
+import com.cslaker.study.utils.MyApplication;
 
 import java.util.List;
 

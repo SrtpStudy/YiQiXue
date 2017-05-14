@@ -4,27 +4,31 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cslaker.study.R;
-import com.cslaker.study.adapter.AnswerAdapter;
 import com.cslaker.study.adapter.ReplayAdapter;
-import com.cslaker.study.bean.Answer;
+import com.cslaker.study.bean.Question;
 import com.cslaker.study.bean.Replay;
-import com.cslaker.study.tools.RecyclerViewDivider;
+import com.cslaker.study.utils.BaseCallback;
+import com.cslaker.study.utils.OkHttpUtil;
+import com.cslaker.study.utils.RecyclerViewDivider;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by CSLaker on 2017/5/2.
@@ -60,11 +64,6 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
 
         initPullToRefreshLV();
 
-/*        mRecyclerView = (RecyclerView) findViewById(R.id.recycle_view);
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(dividerLine);
-        mRecyclerView.setAdapter(mReplayAdapter);*/
     }
 
     private void initPullToRefreshLV() {
@@ -81,6 +80,28 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
                 mPullToRefreshLV.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        OkHttpUtil okHttpUtil = OkHttpUtil.getinstance();
+                        okHttpUtil.get("http://www.baidu.com", new BaseCallback<String>() {
+                            @Override
+                            public void onRequestBefore() {
+                                Log.d("onRequestBefore", "之前");
+                            }
+
+                            @Override
+                            public void onFailure(Request request, Exception e) {
+                                Log.d("onFailure", "失败");
+                            }
+
+                            @Override
+                            public void onSuccess(Response response, String o) {
+                                Log.d("onSuccess", "成功");
+                            }
+
+                            @Override
+                            public void onError(Response response, int errorCode, Exception e) {
+                                Log.d("onError", "错误");
+                            }
+                        });
 
                         mPullToRefreshLV.onRefreshComplete();//上拉加载更多结束，上拉加载头复位
                     }
@@ -96,6 +117,7 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
                 mPullToRefreshLV.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+
 
                         mPullToRefreshLV.onRefreshComplete();//上拉加载更多结束，上拉加载头复位
                     }

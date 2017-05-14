@@ -9,11 +9,9 @@ import android.widget.TextView;
 import com.cslaker.study.R;
 import com.cslaker.study.activity.QuestionInfoActivity;
 import com.cslaker.study.bean.Question;
-import com.cslaker.study.tools.MyApplication;
+import com.cslaker.study.utils.MyApplication;
 
 import java.util.List;
-
-import static java.security.AccessController.getContext;
 
 /**
  * Created by CSLaker on 2017/3/25.
