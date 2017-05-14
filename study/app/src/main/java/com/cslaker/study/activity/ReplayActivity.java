@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.cslaker.study.R;
@@ -18,6 +20,8 @@ import com.cslaker.study.adapter.ReplayAdapter;
 import com.cslaker.study.bean.Answer;
 import com.cslaker.study.bean.Replay;
 import com.cslaker.study.tools.RecyclerViewDivider;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +34,9 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
 
     private static RecyclerViewDivider dividerLine;
     private RecyclerView mRecyclerView;
+    private PullToRefreshListView mPullToRefreshLV;
     private ReplayAdapter mReplayAdapter;
     private List<Replay> mReplayList;
-    private TextView mAnswerTV;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +58,58 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
             dividerLine.setColor(Color.LTGRAY);
         }
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycle_view);
+        initPullToRefreshLV();
+
+/*        mRecyclerView = (RecyclerView) findViewById(R.id.recycle_view);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(dividerLine);
-        mRecyclerView.setAdapter(mReplayAdapter);
+        mRecyclerView.setAdapter(mReplayAdapter);*/
+    }
+
+    private void initPullToRefreshLV() {
+        mPullToRefreshLV = (PullToRefreshListView) findViewById(R.id.pull_to_refresh_lv);
+        mPullToRefreshLV.setAdapter(mReplayAdapter);
+        mPullToRefreshLV.setMode(PullToRefreshBase.Mode.BOTH);
+        mPullToRefreshLV.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                String label = DateUtils.formatDateTime(getApplicationContext(), System.currentTimeMillis(),
+                        DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
+
+                refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
+                mPullToRefreshLV.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        mPullToRefreshLV.onRefreshComplete();//上拉加载更多结束，上拉加载头复位
+                    }
+                }, 1200);
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+                String label = DateUtils.formatDateTime(getApplicationContext(), System.currentTimeMillis(),
+                        DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
+
+                refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
+                mPullToRefreshLV.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        mPullToRefreshLV.onRefreshComplete();//上拉加载更多结束，上拉加载头复位
+                    }
+                }, 1200);
+            }
+        });
+        // 设置PullRefreshListView上提加载时的加载提示
+        mPullToRefreshLV.getLoadingLayoutProxy(false,true).setPullLabel("上拉加载更多.");
+        mPullToRefreshLV.getLoadingLayoutProxy(false,true).setRefreshingLabel("正在加载数据...");
+        mPullToRefreshLV.getLoadingLayoutProxy(false,true).setReleaseLabel("松开加载更多...");
+        // 设置PullRefreshListView下拉加载时的加载提示
+        mPullToRefreshLV.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新...");
+        mPullToRefreshLV.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+        mPullToRefreshLV.getLoadingLayoutProxy(true,false).setReleaseLabel("松开刷新...");
     }
 
     private void initDatas() {

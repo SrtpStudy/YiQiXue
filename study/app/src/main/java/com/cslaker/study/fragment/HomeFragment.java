@@ -31,8 +31,6 @@ import java.util.logging.LogRecord;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
-    public static final int UPDATE_DATA = 1;
-
     private static HomeFragment fragment;
     private RecyclerView mRecyclerView;
     private QuestionAdapter mQuestionAdapter;
