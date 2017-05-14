@@ -11,10 +11,18 @@
     <string name="collect">收藏</string>
     <string name="replay">回答</string>
     <string name="subjects_name">公共基础课：高等数学</string>
-    <string name="question_contents2">(1）可导一定连续 设y=f(x)在x0处可导,f\'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再...</string>
+    <string name="question_contents2">(1）可导一定连续 设y=f(x)在x0处可导,f\'(x0)=A由可导的充分必要条件有f(x)=f(x0)+A(x-x0)+o（│x-x0│）,当x→x0时,f(x)=f(x0)+o（│x-x0│）(2）再…</string>
     <string name="prompt_title">标题</string>
     <string name="prompt_contents">内容</string>
-    <string name="default_sort">默认排序</string>
     <string name="answer_number">123个回答</string>
     <string name="time">2017-01-01</string>
+    <string name="comments">这答案厉害了！谁写的这么棒！</string>
+
+    <string-array name="sorts">
+        <item>默认排序</item>
+        <item>评论时间</item>
+        <item>点赞数</item>
+        <item>回复数</item>
+    </string-array>
+
 </resources>

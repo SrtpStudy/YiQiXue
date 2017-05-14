@@ -126,6 +126,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,10 +134,11 @@
             android:layout_marginTop="@dimen/dp_8"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:textColor="@color/textColorPrimary"
             android:text="@string/answer_number" />
 
-        <TextView
-            android:id="@+id/tv_sort"
+        <Spinner
+            android:id="@+id/spin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_8"
@@ -144,15 +146,13 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_alignParentRight="true"
-            android:drawableRight="@drawable/ic_sort_16dp"
-            android:drawablePadding="8dp"
-            android:text="@string/default_sort" />
+            android:entries="@array/sorts"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycle_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tv_sort" />
+            android:layout_below="@+id/spin" />
 
     </RelativeLayout>
 

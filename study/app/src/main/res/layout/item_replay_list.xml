@@ -19,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:text="华仔"
+        android:textColor="@color/textColorPrimary"
+        android:text="@string/user2_name"
         android:layout_toRightOf="@+id/iv_replay_user" />
 
     <TextView
@@ -32,14 +33,14 @@
         android:layout_below="@+id/tv_replay_contents"
         android:drawableLeft="@drawable/ic_like_red_16dp"
         android:drawablePadding="8dp"
-        android:text="999" />
+        android:text="@string/like_number" />
 
     <TextView
         android:id="@+id/tv_replay_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="2017-01-01"
+        android:text="@string/time"
         android:layout_below="@+id/tv_replay_contents"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
@@ -49,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="这答案厉害了！谁写的这么棒！"
+        android:text="@string/comments"
         android:layout_below="@+id/tv_replay_user"
         android:layout_alignLeft="@+id/tv_replay_user"
         android:layout_alignStart="@+id/tv_replay_user"/>
