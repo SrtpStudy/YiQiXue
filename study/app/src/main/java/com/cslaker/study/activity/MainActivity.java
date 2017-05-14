@@ -47,7 +47,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     public void initView(View view) {
-        this.setSteepStatusBar(true);
         toolbar = $(R.id.toolbar);
         bottomNavigationBar = $(R.id.bottom_navigation_bar);
         fragments = getFragments();

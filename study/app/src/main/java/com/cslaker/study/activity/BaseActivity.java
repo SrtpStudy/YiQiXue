@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     /** 是否沉浸状态栏 **/
-    private boolean isSetStatusBar = true;
+    private boolean isSetStatusBar = false;
     /** 是否允许全屏 **/
     private boolean mAllowFullScreen = true;
     /** 是否禁止旋转屏幕 **/
