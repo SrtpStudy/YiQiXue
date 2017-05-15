@@ -1,10 +1,7 @@
 package com.cslaker.study.fragment;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Handler;
-import android.os.Message;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -19,11 +16,10 @@ import android.widget.Toast;
 import com.cslaker.study.R;
 import com.cslaker.study.activity.NewQuestionActivity;
 import com.cslaker.study.adapter.QuestionAdapter;
-import com.cslaker.study.bean.Question;
+import com.cslaker.study.bean.QuestionBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.LogRecord;
 
 /**
  * Created by CSLaker on 2017/3/24.
@@ -34,8 +30,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private static HomeFragment fragment;
     private RecyclerView mRecyclerView;
     private QuestionAdapter mQuestionAdapter;
-    private List<Question> mQuestionList;
-    private Question[] mQuestions;
+    private List<QuestionBean> mQuestionList;
+    private QuestionBean[] mQuestions;
     private ImageButton mNewQuestion;
     private SwipeRefreshLayout mSwipeRefresh;
 
@@ -88,8 +84,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private void initDatas() {
         mQuestionList = new ArrayList<>();
 
-        mQuestions = new Question[3];
-        mQuestions[0] = new Question();
+        mQuestions = new QuestionBean[3];
+        mQuestions[0] = new QuestionBean();
         mQuestions[0].setSubject("公共基础：高等数学");
         mQuestions[0].setTitle("如何证明：可导一定连续,连续不一定可导？");
         mQuestions[0].setContens("(1）可导一定连续  设y=f(x)在x0处可导,f'(x0)=A由可导的充分必要条件有f(x)=f(x0)"
@@ -97,7 +93,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         mQuestions[0].setAnswerNumbers(66);
         mQuestions[0].setLikeNumbers(999);
 
-        mQuestions[1] = new Question();
+        mQuestions[1] = new QuestionBean();
         mQuestions[1].setSubject("专业选修：计算机网络");
         mQuestions[1].setTitle(" TCP/IP的核心思想(理念)是什么？");
         mQuestions[1].setContens("TCP/IP的核心思想就是“网络互联”，将使用不同低层协议的异构网络，" +
@@ -105,7 +101,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         mQuestions[1].setAnswerNumbers(15);
         mQuestions[1].setLikeNumbers(156);
 
-        mQuestions[2] = new Question();
+        mQuestions[2] = new QuestionBean();
         mQuestions[2].setSubject("专业必修：Java程序设计");
         mQuestions[2].setTitle("面向对象和面向过程的区别？");
         mQuestions[2].setContens("面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了。 \n" +

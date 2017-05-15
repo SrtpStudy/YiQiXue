@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.cslaker.study.R;
 import com.cslaker.study.activity.QuestionInfoActivity;
-import com.cslaker.study.bean.Question;
+import com.cslaker.study.bean.QuestionBean;
 import com.cslaker.study.utils.MyApplication;
 
 import java.util.List;
@@ -19,9 +19,9 @@ import java.util.List;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
-    private List<Question> mDatas = null;
+    private List<QuestionBean> mDatas = null;
 
-    public QuestionAdapter(List<Question> datas) {
+    public QuestionAdapter(List<QuestionBean> datas) {
         this.mDatas = datas;
     }
 

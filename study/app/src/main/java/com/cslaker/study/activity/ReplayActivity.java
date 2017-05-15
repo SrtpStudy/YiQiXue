@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.cslaker.study.R;
 import com.cslaker.study.adapter.ReplayAdapter;
 import com.cslaker.study.bean.Replay;
+import com.cslaker.study.utils.BaseCallback;
 import com.cslaker.study.utils.OkHttpUtil;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
