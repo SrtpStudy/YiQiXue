@@ -1,5 +1,6 @@
 package com.cslaker.study.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -34,40 +35,62 @@ import java.util.logging.Logger;
  * Created by CSLaker on 2017/5/2.
  */
 
-public class ReplayActivity extends AppCompatActivity implements View.OnClickListener {
+public class ReplayActivity extends BaseActivity {
 
-    private static RecyclerViewDivider dividerLine;
-    private RecyclerView mRecyclerView;
     private PullToRefreshListView mPullToRefreshLV;
     private ReplayAdapter mReplayAdapter;
     private List<Replay> mReplayList;
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_replay);
+    @Override
+    public void widgetClick(View v) {
+
+    }
+
+    @Override
+    public void initParms(Bundle parms) {
+        if (mReplayList == null) {
+            Replay replay = new Replay();
+            replay.setUser("华仔");
+            replay.setContens("这答案厉害了！谁写的这么棒！");
+            replay.setTime("2017-01-01");
+            replay.setLikeNumbers(666);
+
+            mReplayList = new ArrayList<>();
+            for (int i = 0; i < 10; i ++) {
+                mReplayList.add(replay);
+            }
+        }
+        if (mReplayAdapter == null) {
+            mReplayAdapter = new ReplayAdapter(mReplayList);
+        }
+    }
+
+    @Override
+    public int bindLayout() {
+        return R.layout.activity_replay;
+    }
+
+    @Override
+    public void initView(View view) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("评论");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if (mReplayList == null) {
-            initDatas();
-        }
-        if (mReplayAdapter == null) {
-            mReplayAdapter = new ReplayAdapter(mReplayList);
-        }
-        if (dividerLine == null) {
-            dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
-            dividerLine.setSize(5);
-            dividerLine.setColor(Color.LTGRAY);
-        }
+        mPullToRefreshLV = $(R.id.pull_to_refresh_lv);
+    }
 
-        initPullToRefreshLV();
+    @Override
+    public void setListener() {
 
     }
 
+    @Override
+    public void doBusiness(Context mContext) {
+        initPullToRefreshLV();
+    }
+
     private void initPullToRefreshLV() {
-        mPullToRefreshLV = (PullToRefreshListView) findViewById(R.id.pull_to_refresh_lv);
         mPullToRefreshLV.setAdapter(mReplayAdapter);
         mPullToRefreshLV.setMode(PullToRefreshBase.Mode.BOTH);
         mPullToRefreshLV.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
@@ -134,19 +157,6 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
         mPullToRefreshLV.getLoadingLayoutProxy(true,false).setReleaseLabel("松开刷新...");
     }
 
-    private void initDatas() {
-        Replay replay = new Replay();
-        replay.setUser("华仔");
-        replay.setContens("这答案厉害了！谁写的这么棒！");
-        replay.setTime("2017-01-01");
-        replay.setLikeNumbers(666);
-
-        mReplayList = new ArrayList<>();
-        for (int i = 0; i < 10; i ++) {
-            mReplayList.add(replay);
-        }
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -168,10 +178,4 @@ public class ReplayActivity extends AppCompatActivity implements View.OnClickLis
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View v) {
-        Intent intent;
-        switch (v.getId()) {
-        }
-    }
 }

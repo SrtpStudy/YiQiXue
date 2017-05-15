@@ -38,12 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         Log.d(TAG, "BaseActivity-->onCreate()");
         Bundle bundle = getIntent().getExtras();
         initParms(bundle);
-        View mView = bindView();
-        if (null == mView) {
-            mContextView = LayoutInflater.from(this)
-                    .inflate(bindLayout(), null);
-        } else
-            mContextView = mView;
+        mContextView = LayoutInflater.from(this).inflate(bindLayout(), null);
         if (mAllowFullScreen) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
         }
@@ -79,13 +74,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * @param parms
      */
     public abstract void initParms(Bundle parms);
-
-    /**
-     * [绑定视图]
-     *
-     * @return
-     */
-    public abstract View bindView();
 
     /**
      * [绑定布局]

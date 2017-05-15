@@ -1,5 +1,6 @@
 package com.cslaker.study.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,42 +24,59 @@ import java.util.List;
  * Created by CSLaker on 2017/5/2.
  */
 
-public class QuestionInfoActivity  extends AppCompatActivity implements View.OnClickListener {
+public class QuestionInfoActivity  extends BaseActivity {
 
-    private static RecyclerViewDivider dividerLine;
     private RecyclerView mRecyclerView;
     private AnswerAdapter mAnswerAdapter;
     private List<Answer> mAnswerList;
     private TextView mAnswerTV;
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question_info);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("问题");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    public void widgetClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_new_answer:
+                startActivity(NewAnswerActivity.class);
+                break;
+        }
+    }
 
+    @Override
+    public void initParms(Bundle parms) {
         if (mAnswerList == null) {
             initDatas();
         }
         if (mAnswerAdapter == null) {
             mAnswerAdapter = new AnswerAdapter(mAnswerList);
         }
-        if (dividerLine == null) {
-            dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
-            dividerLine.setSize(10);
-            dividerLine.setColor(Color.LTGRAY);
-        }
+    }
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycle_view);
+    @Override
+    public int bindLayout() {
+        return R.layout.activity_question_info;
+    }
+
+    @Override
+    public void initView(View view) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("问题");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mRecyclerView = $(R.id.recycle_view);
+        mAnswerTV = $(R.id.tv_new_answer);
+    }
+
+    @Override
+    public void setListener() {
+        mAnswerTV.setOnClickListener(this);
+    }
+
+    @Override
+    public void doBusiness(Context mContext) {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(dividerLine);
+        mRecyclerView.addItemDecoration(RecyclerViewDivider.getInstance());
         mRecyclerView.setAdapter(mAnswerAdapter);
-
-        mAnswerTV = (TextView) findViewById(R.id.tv_new_answer);
-        mAnswerTV.setOnClickListener(this);
     }
 
     private void initDatas() {
@@ -126,14 +144,4 @@ public class QuestionInfoActivity  extends AppCompatActivity implements View.OnC
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View v) {
-        Intent intent;
-        switch (v.getId()) {
-            case R.id.tv_new_answer:
-                intent = new Intent(QuestionInfoActivity.this, NewAnswerActivity.class);
-                startActivity(intent);
-                break;
-        }
-    }
 }

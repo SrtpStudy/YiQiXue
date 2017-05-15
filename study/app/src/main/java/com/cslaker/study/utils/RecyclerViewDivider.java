@@ -1,10 +1,13 @@
 package com.cslaker.study.utils;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.cslaker.study.R;
 
 public class RecyclerViewDivider extends RecyclerView.ItemDecoration {
 
@@ -20,19 +23,29 @@ public class RecyclerViewDivider extends RecyclerView.ItemDecoration {
 
     // 画笔
     private Paint paint;
-
     // 布局方向
     private int orientation;
     // 分割线颜色
     private int color;
     // 分割线尺寸
     private int size;
+    //分割线对象
+    private static RecyclerViewDivider dividerLine;
 
-    public RecyclerViewDivider() {
+    public static RecyclerViewDivider getInstance() {
+        if (dividerLine == null) {
+            dividerLine = new RecyclerViewDivider(RecyclerViewDivider.VERTICAL);
+            dividerLine.setSize(10);
+            dividerLine.setColor(Color.LTGRAY);
+        }
+        return dividerLine;
+    }
+
+    private RecyclerViewDivider() {
         this(VERTICAL);
     }
 
-    public RecyclerViewDivider(int orientation) {
+    private RecyclerViewDivider(int orientation) {
         this.orientation = orientation;
 
         paint = new Paint();

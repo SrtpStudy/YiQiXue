@@ -11,8 +11,6 @@ import com.squareup.okhttp.Response;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-
-
 /**
  * 基本的回调
  */

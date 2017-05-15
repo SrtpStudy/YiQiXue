@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener {
 
     private ArrayList<Fragment> fragments;
-    private Toolbar toolbar;
     private BottomNavigationBar bottomNavigationBar;
 
     @Override
@@ -32,12 +31,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     public void initParms(Bundle parms) {
-
-    }
-
-    @Override
-    public View bindView() {
-        return null;
+        fragments = getFragments();
     }
 
     @Override
@@ -47,9 +41,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     public void initView(View view) {
-        toolbar = $(R.id.toolbar);
+        Toolbar toolbar = $(R.id.toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+
         bottomNavigationBar = $(R.id.bottom_navigation_bar);
-        fragments = getFragments();
     }
 
     @Override
@@ -59,9 +55,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     public void doBusiness(Context mContext) {
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_book_black_18dp, "学习广场").setActiveColorResource(R.color.navigationBarColor))

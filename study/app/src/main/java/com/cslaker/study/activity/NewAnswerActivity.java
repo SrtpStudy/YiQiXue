@@ -1,5 +1,6 @@
 package com.cslaker.study.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,15 +15,39 @@ import com.cslaker.study.R;
  * Created by CSLaker on 2017/5/2.
  */
 
-public class NewAnswerActivity extends AppCompatActivity {
+public class NewAnswerActivity extends BaseActivity {
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_answer);
+    @Override
+    public void widgetClick(View v) {
+
+    }
+
+    @Override
+    public void initParms(Bundle parms) {
+
+    }
+
+    @Override
+    public int bindLayout() {
+        return R.layout.activity_new_answer;
+    }
+
+    @Override
+    public void initView(View view) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("回答");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public void setListener() {
+
+    }
+
+    @Override
+    public void doBusiness(Context mContext) {
+
     }
 
     @Override
