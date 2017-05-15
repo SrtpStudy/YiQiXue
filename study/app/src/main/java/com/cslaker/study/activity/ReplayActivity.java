@@ -1,11 +1,7 @@
 package com.cslaker.study.activity;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -13,15 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.cslaker.study.R;
 import com.cslaker.study.adapter.ReplayAdapter;
-import com.cslaker.study.bean.Question;
 import com.cslaker.study.bean.Replay;
-import com.cslaker.study.utils.BaseCallback;
 import com.cslaker.study.utils.OkHttpUtil;
-import com.cslaker.study.utils.RecyclerViewDivider;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.squareup.okhttp.Request;
@@ -29,7 +21,6 @@ import com.squareup.okhttp.Response;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Created by CSLaker on 2017/5/2.
