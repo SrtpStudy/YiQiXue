@@ -3,6 +3,7 @@
     package="com.cslaker.study" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".utils.MyApplication"
         android:allowBackup="true"

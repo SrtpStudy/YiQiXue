@@ -19,7 +19,7 @@ public class NewAnswerActivity extends BaseActivity {
 
     @Override
     public void initData(Bundle parms) {
-
+        
     }
 
     @Override
