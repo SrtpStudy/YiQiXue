@@ -25,12 +25,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     private BottomNavigationBar bottomNavigationBar;
 
     @Override
-    public void widgetClick(View v) {
-
-    }
-
-    @Override
-    public void initParms(Bundle parms) {
+    public void initData(Bundle parms) {
         fragments = getFragments();
     }
 
@@ -50,6 +45,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     public void setListener() {
+
+    }
+
+    @Override
+    public void widgetClick(View v) {
 
     }
 

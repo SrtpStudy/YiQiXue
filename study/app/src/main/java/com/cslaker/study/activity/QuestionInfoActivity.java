@@ -32,16 +32,7 @@ public class QuestionInfoActivity  extends BaseActivity {
     private TextView mAnswerTV;
 
     @Override
-    public void widgetClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv_new_answer:
-                startActivity(NewAnswerActivity.class);
-                break;
-        }
-    }
-
-    @Override
-    public void initParms(Bundle parms) {
+    public void initData(Bundle parms) {
         if (mAnswerList == null) {
             initDatas();
         }
@@ -69,6 +60,15 @@ public class QuestionInfoActivity  extends BaseActivity {
     @Override
     public void setListener() {
         mAnswerTV.setOnClickListener(this);
+    }
+
+    @Override
+    public void widgetClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_new_answer:
+                startActivity(NewAnswerActivity.class);
+                break;
+        }
     }
 
     @Override

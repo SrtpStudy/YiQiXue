@@ -17,12 +17,7 @@ import com.cslaker.study.R;
 public class AnswerInfoActivity extends BaseActivity {
 
     @Override
-    public void widgetClick(View v) {
-
-    }
-
-    @Override
-    public void initParms(Bundle parms) {
+    public void initData(Bundle parms) {
 
     }
 
@@ -41,6 +36,11 @@ public class AnswerInfoActivity extends BaseActivity {
 
     @Override
     public void setListener() {
+
+    }
+
+    @Override
+    public void widgetClick(View v) {
 
     }
 

@@ -13,6 +13,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.cslaker.study.utils.LogUtil;
+
 /**
  * Created by CS on 2017/5/14.
  */
@@ -29,15 +31,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /** 日志输出标志 **/
     protected final String TAG = this.getClass().getSimpleName();
 
-    /** View点击 **/
-    public abstract void widgetClick(View v);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "BaseActivity-->onCreate()");
+        LogUtil.d(TAG, "BaseActivity-->onCreate()");
         Bundle bundle = getIntent().getExtras();
-        initParms(bundle);
+        initData(bundle);
         mContextView = LayoutInflater.from(this).inflate(bindLayout(), null);
         if (mAllowFullScreen) {
             requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -73,7 +72,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      *
      * @param parms
      */
-    public abstract void initParms(Bundle parms);
+    public abstract void initData(Bundle parms);
 
     /**
      * [绑定布局]
@@ -109,6 +108,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         widgetClick(v);
     }
+
+    /**
+     * [View点击]
+     */
+    public abstract void widgetClick(View v);
 
     /**
      * [业务操作]
@@ -163,37 +167,37 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "onRestart()");
+        LogUtil.d(TAG, "onRestart()");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart()");
+        LogUtil.d(TAG, "onStart()");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume()");
+        LogUtil.d(TAG, "onResume()");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause()");
+        LogUtil.d(TAG, "onPause()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, "onStop()");
+        LogUtil.d(TAG, "onStop()");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy()");
+        LogUtil.d(TAG, "onDestroy()");
     }
 
     /**

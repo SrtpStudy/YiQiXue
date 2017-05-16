@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.cslaker.study.R;
 import com.cslaker.study.adapter.ReplayAdapter;
 import com.cslaker.study.bean.Replay;
+import com.cslaker.study.utils.BaseCallback;
 import com.cslaker.study.utils.OkHttpUtil;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -33,12 +34,7 @@ public class ReplayActivity extends BaseActivity {
     private List<Replay> mReplayList;
 
     @Override
-    public void widgetClick(View v) {
-
-    }
-
-    @Override
-    public void initParms(Bundle parms) {
+    public void initData(Bundle parms) {
         if (mReplayList == null) {
             Replay replay = new Replay();
             replay.setUser("华仔");
@@ -73,6 +69,11 @@ public class ReplayActivity extends BaseActivity {
 
     @Override
     public void setListener() {
+
+    }
+
+    @Override
+    public void widgetClick(View v) {
 
     }
 
