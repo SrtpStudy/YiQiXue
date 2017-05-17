@@ -84,12 +84,12 @@
         "source": "F:\\YiQiXue\\study\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ssdk_oks_classic_wechatfavorite.png"
     },
     {
-        "merged": "F:\\YiQiXue\\study\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ssdk_oks_classic_foursquare.png",
-        "source": "F:\\YiQiXue\\study\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ssdk_oks_classic_foursquare.png"
-    },
-    {
         "merged": "F:\\YiQiXue\\study\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ssdk_oks_classic_facebookmessenger.png",
         "source": "F:\\YiQiXue\\study\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ssdk_oks_classic_facebookmessenger.png"
+    },
+    {
+        "merged": "F:\\YiQiXue\\study\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ssdk_oks_classic_foursquare.png",
+        "source": "F:\\YiQiXue\\study\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ssdk_oks_classic_foursquare.png"
     },
     {
         "merged": "F:\\YiQiXue\\study\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ssdk_oks_classic_qq.png",
