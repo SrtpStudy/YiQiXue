@@ -3,6 +3,7 @@ package com.cslaker.study.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,11 +17,20 @@ import android.widget.TextView;
 import com.cslaker.study.R;
 import com.cslaker.study.adapter.AnswerAdapter;
 import com.cslaker.study.bean.Answer;
+import com.cslaker.study.utils.LogUtil;
 import com.cslaker.study.utils.RecyclerViewDivider;
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by CSLaker on 2017/5/2.
@@ -153,6 +163,18 @@ public class QuestionInfoActivity  extends BaseActivity {
         oks.show(this);
     }
 
+    private void refreshDatasOnRxJava() {
+        Observable.just(1, 2, 3)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(@NonNull Integer integer) throws Exception {
+                        LogUtil.d("" + integer);
+                    }
+                });
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         menu .findItem(R.id.ab_save).setVisible(false);
@@ -171,6 +193,9 @@ public class QuestionInfoActivity  extends BaseActivity {
                 break;
             case R.id.ab_share:
                 showShare();
+                break;
+            case R.id.ab_more:
+                refreshDatasOnRxJava();
                 break;
         }
         return super.onOptionsItemSelected(item);

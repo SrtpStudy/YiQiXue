@@ -20,10 +20,17 @@ import com.cslaker.study.R;
 import com.cslaker.study.activity.NewQuestionActivity;
 import com.cslaker.study.adapter.QuestionAdapter;
 import com.cslaker.study.bean.Question;
+import com.cslaker.study.utils.LogUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.LogRecord;
+
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by CSLaker on 2017/3/24.
